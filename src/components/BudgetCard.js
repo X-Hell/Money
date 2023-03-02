@@ -69,5 +69,6 @@ function getProgressBarVariant(amount, max) {
 }
 
 function getLabel(amount, max) {
-  return amount / max * 100
+  const percent = Math.trunc(amount / max * 100)
+  return percent
 }
