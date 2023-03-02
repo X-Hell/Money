@@ -8,6 +8,7 @@ import UncategorizedBudgetCard from "./components/UncategorizedBudgetCard"
 import TotalBudgetCard from "./components/TotalBudgetCard"
 import { useState } from "react"
 import { UNCATEGORIZED_BUDGET_ID, useBudgets } from "./contexts/BudgetsContext"
+import { TbUsers } from 'react-icons/tb';
 
 function App() {
   const [showAddBudgetModal, setShowAddBudgetModal] = useState(false)
@@ -23,14 +24,17 @@ function App() {
 
   return (
     <>
-      <Container className="my-4">
+      <Container className="my-5">
         <Stack direction="horizontal" gap="2" className="mb-4">
-          <h1 className="me-auto">Budgets</h1>
-          <Button variant="primary" onClick={() => setShowAddBudgetModal(true)}>
-            Add Budget
+          <h2 className="me-auto">Money</h2>
+          <Button variant="success" onClick={() => setShowAddBudgetModal(true)}>
+            <h7>+ Budget</h7>
           </Button>
           <Button variant="outline-primary" onClick={openAddExpenseModal}>
-            Add Expense
+            <h7>+ Expense</h7>
+          </Button>
+          <Button variant="outline-secondary" onClick={openAddExpenseModal}>
+            <TbUsers size={'1.4rem'} />
           </Button>
         </Stack>
         <div
@@ -47,6 +51,7 @@ function App() {
               0
             )
             return (
+              
               <BudgetCard
                 key={budget.id}
                 name={budget.name}
