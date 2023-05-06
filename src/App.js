@@ -9,12 +9,14 @@ import TotalBudgetCard from "./components/TotalBudgetCard"
 import { useState } from "react"
 import { UNCATEGORIZED_BUDGET_ID, useBudgets } from "./contexts/BudgetsContext"
 import { TbUsers } from 'react-icons/tb';
+import './styles.css'
 
 function App() {
   const [showAddBudgetModal, setShowAddBudgetModal] = useState(false)
   const [showAddExpenseModal, setShowAddExpenseModal] = useState(false)
   const [viewExpensesModalBudgetId, setViewExpensesModalBudgetId] = useState()
   const [addExpenseModalBudgetId, setAddExpenseModalBudgetId] = useState()
+  const [userName, setUserName] = useState("NULL")
   const { budgets, getBudgetExpenses } = useBudgets()
 
   function openAddExpenseModal(budgetId) {
@@ -26,7 +28,7 @@ function App() {
     <>
       <Container className="my-5">
         <Stack direction="horizontal" gap="2" className="mb-4">
-          <h2 className="me-auto">Money</h2>
+          <h2 className="me-auto">{userName}</h2>
           <Button variant="success" onClick={() => setShowAddBudgetModal(true)}>
             <h7>+ Budget</h7>
           </Button>
